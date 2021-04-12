@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CameraEx.cpp" />
+    <ClCompile Include="D3D9Helper.cpp" />
+    <ClCompile Include="externOverlayDirectX.cpp" />
+    <ClCompile Include="mem.cpp" />
+    <ClCompile Include="Paint.cpp" />
+    <ClCompile Include="proc.cpp" />
+    <ClCompile Include="AimBot.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Camera.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraEx.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Helper.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="externOverlayDirectX.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="geom.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="mem.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Paint.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="proc.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="AimBot.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="externOverlayDirectX.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="externOverlayDirectX.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{c7561b8e-fe1d-4e91-a5cb-e95f0d4f2441}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
