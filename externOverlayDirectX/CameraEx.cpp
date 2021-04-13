@@ -2,10 +2,10 @@
 #include "CameraEx.h"
 
 //these offsets change with each game. (See CameraEx.h as well)
-CameraEx::CameraEx(HANDLE hProc)
+CameraEx::CameraEx(HANDLE hProc, int width, int height)
 {
-	windowWidth = 1024;
-	windowHeight = 720;
+	windowWidth = width;
+	windowHeight = height;
 	//adjust your resolution of game here
 	//windowHeight = *(__int32*)pResolution;
 	//windowWidth = *(__int32*)(pResolution + 0x4);

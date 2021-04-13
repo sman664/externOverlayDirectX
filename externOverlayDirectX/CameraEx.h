@@ -14,13 +14,13 @@ const uintptr_t localPlayer = (uintptr_t)0x50F4F4;
 class CameraEx
 {
 public:
-	float windowWidth = 0, windowHeight = 0;
+	int windowWidth = 0, windowHeight = 0;
 	//Camera* camera;
 	float matrix[16];
 
 	HANDLE hProc = 0;
 
-	CameraEx(HANDLE hProc);
+	CameraEx(HANDLE hProc, int width, int height);
 
 	vec3 WorldToScreen(vec3 pos);
 };

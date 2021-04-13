@@ -7,9 +7,9 @@
 class Aimbot
 {
 public:
-	const int WINDOWWIDTH = 1024;
-	const int WINDOWHEIGHT = 720;
-	float PI = 3.14159265358;
+	int WINDOWWIDTH = 0;
+	int WINDOWHEIGHT = 0;
+	float PI = 3.141592f;
 
 	HANDLE hProc = 0;
 	uintptr_t* entlist = (uintptr_t*)(0x50f4f8);
@@ -22,7 +22,7 @@ public:
 
 	int numOfPlayersDeref;
 
-	Aimbot(HANDLE hProc);
+	Aimbot(HANDLE hProc, int width, int height);
 	vec3 GetLocalPlayerPos();
 	vec3 GetEntity();
 	void AimAt();

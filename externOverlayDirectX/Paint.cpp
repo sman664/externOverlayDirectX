@@ -125,7 +125,7 @@ void Paint::Draw(HANDLE hProc)
 
 		if (IsValidEnt(hProc, currEntPtr))
 		{
-			CameraEx cameraEx = CameraEx(hProc);
+			CameraEx cameraEx = CameraEx(hProc, width, height);
 			Vector3 feetCoords = cameraEx.WorldToScreen(currEntPtrFeet);
 			if (feetCoords.z < 300)
 			{

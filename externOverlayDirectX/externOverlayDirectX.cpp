@@ -102,7 +102,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         if (aimbotBool)
         {
-            Aimbot aimbot = Aimbot(hProcess);
+            Aimbot aimbot = Aimbot(hProcess, width, height);
             aimbot.AimAt();
         }
 

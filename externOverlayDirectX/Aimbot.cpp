@@ -1,10 +1,11 @@
 #include "Aimbot.h"
 
-Aimbot::Aimbot(HANDLE hProc)
+Aimbot::Aimbot(HANDLE hProc, int width, int height)
 {
 	this->hProc = hProc;
-
-	//Get local plaer's address
+	WINDOWWIDTH = width;
+	WINDOWHEIGHT = height;
+	//Get local player's address
 	ReadProcessMemory(hProc, (BYTE*)localPlayer, &(localPlayerDeref), sizeof(localPlayerDeref), 0);
 
 	//Get number of players
@@ -33,6 +34,68 @@ vec3 Aimbot::GetLocalPlayerPos()
 	return LPHeadPos;
 
 }
+vec3 Aimbot::GetEntity()
+{
+	vec3 myPos = GetLocalPlayerPos();
+	vec3 entOfLeastDist;
+
+	uintptr_t currEntPtr;
+	float leastDist = 0;
+
+
+	// loop through entity list 
+	// find the one with the least distance (relative to crosshair)
+	// return his XYZ head pos
+	//problems with this: 2) does not distinguish between allies and enemies
+	for (int i = 0; i < numOfPlayersDeref; i++)
+	{
+		CameraEx cameraEx = CameraEx(hProc, WINDOWWIDTH, WINDOWHEIGHT);
+		
+		//currently this only gets the first entity in the entity list
+		ReadProcessMemory(hProc, (BYTE*)entlist, &(currEntPtr), sizeof(currEntPtr), 0);
+		//currEntPtr += 0x14;
+		for (int j = 0; j < i; j++)
+		{
+			currEntPtr += 0x4;
+		}
+
+		ReadProcessMemory(hProc, (BYTE*)currEntPtr, &(currEntPtr), sizeof(currEntPtr), 0);
+
+		uintptr_t XPosAddr = currEntPtr + 0x4;
+		uintptr_t YPosAddr = currEntPtr + 0x8;
+		uintptr_t ZPosAddr = currEntPtr + 0xC;
+
+		Vector3 targetHead = Vector3();
+
+		ReadProcessMemory(hProc, (BYTE*)XPosAddr, &(targetHead.x), sizeof(targetHead.x), 0);
+		ReadProcessMemory(hProc, (BYTE*)YPosAddr, &(targetHead.y), sizeof(targetHead.y), 0);
+		ReadProcessMemory(hProc, (BYTE*)ZPosAddr, &(targetHead.z), sizeof(targetHead.z), 0);
+
+		//find the target's XY screen coordinates
+		vec3 screenPos = cameraEx.WorldToScreen(targetHead);
+		
+		//... and my crosshair XY screen coordinates
+		vec3 crossPos;
+
+		crossPos.x = WINDOWWIDTH / 2;
+		crossPos.y = WINDOWHEIGHT / 2;
+		crossPos.z = 0.0f;
+		
+		//find the distance from my crosshair to the target
+		float distRelCross = crossPos.Distance(screenPos);
+		
+		if (i == 0 || distRelCross < leastDist)
+		{
+			leastDist = distRelCross;
+			entOfLeastDist = targetHead;
+		}
+
+	}
+
+	return entOfLeastDist;
+
+}
+/*
 vec3 Aimbot::GetEntity() 
 {
 	vec3 myPos = GetLocalPlayerPos();
@@ -81,6 +144,7 @@ vec3 Aimbot::GetEntity()
 	return entOfLeastDist;
 
 }
+*/
 /*vec3 Aimbot::GetEntity()
 {
 	uintptr_t currEntPtr;
@@ -110,7 +174,7 @@ vec3 Aimbot::GetEntity()
 }*/
 void Aimbot::AimAt()
 {
-	CameraEx cameraEx = CameraEx(hProc);
+	CameraEx cameraEx = CameraEx(hProc, WINDOWWIDTH, WINDOWHEIGHT);
 	
 	vec3 target = GetEntity();
 
