@@ -10,7 +10,7 @@ Steps to use:
 
 Details:
 
-ESP boots up at the same time your program does, no buttons needed. 
+ESP boots up at the same time your program does, no buttons needed  
 Use "Right Mouse button" to use aimbot  
 **cursor follows player's heads that your cursor is closest to!**
 
