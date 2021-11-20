@@ -8,11 +8,11 @@ Steps to use:
 3. Start up AssaultCube
 4. Run the debugger or the .exe file provided in the "Debug folder" 
 
-Details:
+## Instructions:
 
 ESP boots up at the same time your program does, no buttons needed  
 Use "Right Mouse button" to use aimbot  
-**cursor follows player's heads that your cursor is closest to!**
+(**cursor detects and follows player's heads that your cursor is closest to!**)
 
 # Proof of Concept 
 ## ESP Showcase:
