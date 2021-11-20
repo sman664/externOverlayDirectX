@@ -95,7 +95,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         DispatchMessage(&msg);
 
         //activate aimbot
-        if (GetAsyncKeyState(VK_XBUTTON2) & 1)
+        if (GetAsyncKeyState(VK_RBUTTON) & 1 )
         {
             aimbotBool = !aimbotBool;
 
