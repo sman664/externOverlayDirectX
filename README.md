@@ -1,4 +1,5 @@
-# externOverlayDirectX
+# Basic AssaultCube ESP and AIMBOT hack
+Many thanks to GuidedHacking forums, Unknowncheats.me, and CasualGamer on YT!
 
 Steps to use:
 
@@ -9,6 +10,13 @@ Steps to use:
 
 Details:
 
-Use "Right Mouse button" to use aimbot (cursor follows player's heads)
+ESP boots up at the same time your program does, no buttons needed.
+Use "Right Mouse button" to use aimbot 
+**cursor follows player's heads that your cursor is closest to!**
 
-![](https://i.gyazo.com/f0357a6d9d00c85cb57382e8f2105db3.gif)
+# Proof of Concept 
+## ESP Showcase:
+![](esp_demo.gif)
+
+## Aimbot Showcase:
+![](aimbot_demo.gif)
