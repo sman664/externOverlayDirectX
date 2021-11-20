@@ -11,4 +11,4 @@ Details:
 
 Use "Right Mouse button" to use aimbot (cursor follows player's heads)
 
-![](https://i.gyazo.com/f0357a6d9d00c85cb57382e8f2105db3.gif)
+![](esp_demo.gif)
